@@ -53,6 +53,7 @@ func (o *OIDC) Setup() error {
 	// Create OIDC verifier
 	o.verifier = o.provider.Verifier(&oidc.Config{
 		ClientID: o.ClientID,
+		SupportedSigningAlgs: []string{"RS256", "ES384"},
 	})
 
 	return nil
