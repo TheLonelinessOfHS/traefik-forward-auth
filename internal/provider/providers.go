@@ -32,7 +32,7 @@ type token struct {
 
 // User is the authenticated user
 type User struct {
-	Email string `json:"email"`,
+	Email string `json:"email"`
 	Username string `json:"username"`
 }
 
