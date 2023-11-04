@@ -111,6 +111,7 @@ func (s *Server) AuthHandler(providerName, rule string) http.HandlerFunc {
 
 		// Valid request
 		logger.Debug("Allowing valid request")
+		logger.Warn("X-Forwarded-User233 %s", user)
 		w.Header().Set("X-Forwarded-User", user)
 		w.WriteHeader(200)
 	}
