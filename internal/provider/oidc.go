@@ -94,5 +94,5 @@ func (o *OIDC) GetUser(token, _ string) (string, error) {
 		return "", err
 	}
 
-	return user, nil
+	return user.Email, nil
 }
