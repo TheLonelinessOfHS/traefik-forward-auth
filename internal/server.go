@@ -177,6 +177,7 @@ func (s *Server) AuthCallbackHandler() http.HandlerFunc {
 
 		// Get user
 		user, err := p.GetUser(token, config.UserPath)
+		logger.Warn("233 %s%s", config.UserPath, user)
 		if err != nil {
 			logger.WithField("error", err).Error("Error getting user")
 			http.Error(w, "Service unavailable", 503)
