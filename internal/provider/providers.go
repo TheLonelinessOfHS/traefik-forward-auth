@@ -37,7 +37,6 @@ type User struct {
 
 // GetUser extracts a UserID located at the (dot notation) path (UserPath) in the json io.Reader of the UserURL
 func GetUser(r io.Reader, UserPath string) (string, error) {
-	fmt.Print("233, %s")
 	json, err := gabs.ParseJSONBuffer(r)
 	if err != nil {
 		return "", err
@@ -46,7 +45,6 @@ func GetUser(r io.Reader, UserPath string) (string, error) {
 	if !json.ExistsP(UserPath) {
 		return "", fmt.Errorf("no such user path: '%s' in the UserURL response: %s", UserPath, string(json.Bytes()))
 	}
-	fmt.Print("233, %v", json.Path(UserPath).Data())
 	return fmt.Sprintf("%v", json.Path(UserPath).Data()), nil
 }
 
