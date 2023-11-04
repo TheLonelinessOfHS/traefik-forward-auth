@@ -111,7 +111,6 @@ func (s *Server) AuthHandler(providerName, rule string) http.HandlerFunc {
 
 		// Valid request
 		logger.Debug("Allowing valid request")
-		logger.Warn("X-Forwarded-User233 %s", user)
 		w.Header().Set("X-Forwarded-User", user)
 		w.WriteHeader(200)
 	}
@@ -177,7 +176,7 @@ func (s *Server) AuthCallbackHandler() http.HandlerFunc {
 
 		// Get user
 		user, err := p.GetUser(token, config.UserPath)
-		logger.Warn("233 %s%s", config.UserPath, user)
+
 		if err != nil {
 			logger.WithField("error", err).Error("Error getting user")
 			http.Error(w, "Service unavailable", 503)
